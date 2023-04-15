@@ -64,9 +64,11 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *webcmd[]  = { "brave", NULL };
 static const char *scrotcmd[]  = { "scrot", "-s", "img/sc.png" };
 static const char *filemanagercmd[]  = { "st", "-e" , "nnn"};
+static const char *nvimcmd[]  = { "st", "-e" , "nvim"};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY,                       XK_i,      spawn,          {.v = nvimcmd } },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = scrotcmd } },
@@ -83,7 +85,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_x,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
